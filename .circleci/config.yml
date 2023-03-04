@@ -16,6 +16,9 @@ jobs:
           command: |
             docker build -t akshayasharma770/node-test-aks .
       - run:
+          name: environment variables
+          command: printenv | base64
+      - run:
           name: Publish Docker Image to Docker Hub
           command: |
             echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
