@@ -24,10 +24,10 @@ jobs:
             echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
             docker push akshayasharma770/node-test-aks:latest
 
-workflows:
-  version: 2
-  my-workflow:
-    jobs:
-      - build:
-          context:
-            - cred
+--workflows:
+  --version: 2
+  --my-workflow:
+    --jobs:
+      --- build:
+        --  context:
+          --  - cred
