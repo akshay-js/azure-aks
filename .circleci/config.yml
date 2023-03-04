@@ -1,7 +1,6 @@
 version: 2
 jobs:
   build:
-    working_directory: /app
     docker:
       - image: cimg/node:15.0.1
       - image: alpine:latest
