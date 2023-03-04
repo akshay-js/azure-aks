@@ -18,7 +18,7 @@ jobs:
       - run:
           name: Publish Docker Image to Docker Hub
           command: |
-            echo ${{ env.$DOCKER_TOKEN}} | docker login -u ${{ env.$DOCKERHUB_USERNAME}} --password-stdin
+            echo "$DOCKER_TOKEN" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
             docker push node-test-aks:latest
 
 workflows:
