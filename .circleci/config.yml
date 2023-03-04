@@ -1,3 +1,4 @@
+---
 version: 2
 jobs:
   build:
@@ -17,14 +18,15 @@ jobs:
             docker build -t node-test-aks .
       - deploy:
           name: Publish Docker Image to Docker Hub
-          command: |
-            echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+          command: >
+            echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME"
+            --password-stdin
+
             docker push node-test-aks:latest
-            
 workflows:
   version: 2
-    my-workflow:
-      jobs:
-        - build:
-            context:
-              - cred
+  my-workflow:
+    jobs:
+      - build:
+          context:
+            - cred
