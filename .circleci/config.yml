@@ -3,10 +3,11 @@ jobs:
   build:
     working_directory: /app
     docker:
-      - image: circleci/node:latest
-      - image: docker:17.05.0-ce-git
+      - image: cimg/node:15.0.1
+      - image: alpine:latest
     steps:
       - checkout
+      - run: node --version
       - setup_remote_docker
       - run:
           name: Install dependencies
