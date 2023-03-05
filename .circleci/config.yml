@@ -1,18 +1,40 @@
+orbs:
+  docker: circleci/docker@1.5.0
 version: 2.1
 executors:
-  my-custom-executor:
-    docker:
-      - image: cimg/base:stable
-jobs:
-  docker-push-test:
+  docker-publisher: 
+    environment:
+      IMAGE_NAME: akshayasharma770/node-test-aks
+    docker: # Each job requires specifying an executor
+    # (either docker, macos, or machine), see
+      - image: circleci/node:latest
+        auth:
+            username: $DOCKERHUB_USERNAME
+            password: $DOCKERHUB_PASSWORD
 
-    executor: my-custom-executor
-    steps:
+jobs:
+    buildNodejs:
+      executor: docker-publisher
+      steps:
       - checkout
-      - run: |
-          echo Hello, World!
+      - setup_remote_docker
+      - run:
+          name: Install dependencies
+          command: npm i
+    publishLatestToHub: 
+      executor: docker-publisher
+      steps: 
+        - checkout
+        - setup_remote_docker
+        - run: 
+            name: Publish Docker Image to Docker Hub
+            command: |
+              echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+              docker build -t $IMAGE_NAME .
+              docker push $IMAGE_NAME:latest
 
 workflows:
-  my-custom-workflow:
+  version: 2
+  build-master:
     jobs:
-      - docker-push-test
+       - publishLatestToHub
