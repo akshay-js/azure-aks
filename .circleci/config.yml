@@ -25,14 +25,14 @@ jobs:
         - run:
             name: Build
             command: |
-              docker build -t mylocalimage/latest .
+              docker build -t node-test-aks .
         - run: 
             name: Publish Docker Image to Docker Hub
             command: |
               docker logout
-              sudo docker tag mylocalimage akshayasharma770/node-test-aks:latest --help
+              sudo docker tag node-test-aks akshayasharma770/node-test-aks:"${CIRCLE_SHA1}" --help
               echo "$DOCKERHUB_PASSWORD" | sudo docker login --help -u "$DOCKERHUB_USERNAME" --password-stdin akshayasharma770/node-test-aks
-              sudo docker push latest/latest --help
+              sudo docker push akshayasharma770/node-test-aks:"${CIRCLE_SHA1}" --help
 
 workflows:
   version: 2
