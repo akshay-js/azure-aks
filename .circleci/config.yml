@@ -30,9 +30,9 @@ jobs:
             name: Publish Docker Image to Docker Hub
             command: |
               docker logout
-              echo "$DOCKERHUB_PASSWORD" | sudo docker login --help -u "$DOCKERHUB_USERNAME" --password-stdin akshayasharma770/node-test-aks
+              echo "$DOCKERHUB_PASSWORD" | docker login --help -u "$DOCKERHUB_USERNAME" --password-stdin akshayasharma770/node-test-aks
               docker tag --help node-test-aks akshayasharma770/node-test-aks
-              sudo docker push --help akshayasharma770/node-test-aks:latest
+              docker push --help akshayasharma770/node-test-aks:latest
 
 workflows:
   version: 2
