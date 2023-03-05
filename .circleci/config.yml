@@ -31,8 +31,8 @@ jobs:
             name: Publish Docker Image to Docker Hub
             command: |
               docker logout
-              echo "$DOCKERHUB_PASSWORD" | sudo docker login --help -u "$DOCKERHUB_USERNAME" --password-stdin
               sudo docker tag mylocalimage akshayasharma770/node-test-aks:mylocalimage
+              echo "$DOCKERHUB_PASSWORD" | sudo docker login --help -u "$DOCKERHUB_USERNAME" --password-stdin
               sudo docker push akshayasharma770/node-test-aks:mylocalimage
 
 workflows:
