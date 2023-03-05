@@ -27,7 +27,7 @@ jobs:
             command: |
               docker logout
               echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin --help
-              docker build -t akshayasharma770/testing .
+              docker build -t mylocalimage .
               docker tag mylocalimage:latest akshayasharma770/testing:myfirstimagepush
               docker push akshayasharma770/testing:myfirstimagepush
 workflows:
