@@ -3,8 +3,6 @@ version: 2.1
 jobs: # basic units of work in a run
   build:
     docker: # use the Docker executor
-      # CircleCI Node images available at: https://circleci.com/developer/images/image/cimg/node
-      - image: circleci/node:latest
         auth:
           username: mydockerhub-user
           password: $DOCKERHUB_PASSWORD # context / project UI env-var reference
