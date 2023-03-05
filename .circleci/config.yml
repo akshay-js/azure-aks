@@ -25,14 +25,14 @@ jobs:
         - run:
             name: Build
             command: |
-              docker build -t mylocalimage .
+              docker build -t mylocalimage/latest .
         - run: 
             name: Publish Docker Image to Docker Hub
             command: |
               docker logout
               sudo docker tag mylocalimage akshayasharma770/node-test-aks:latest --help
               echo "$DOCKERHUB_PASSWORD" | sudo docker login --help -u "$DOCKERHUB_USERNAME" --password-stdin akshayasharma770/node-test-aks
-              sudo docker push akshayasharma770/node-test-aks:latest --help
+              sudo docker push latest/latest --help
 
 workflows:
   version: 2
