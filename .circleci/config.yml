@@ -27,7 +27,7 @@ jobs:
             command: |
               docker logout
               echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin --help
-              docker build -t node-test-aks .
+              docker build -t akshayasharma770/node-test-aks .
               docker push akshayasharma770/node-test-aks:latest
 workflows:
   version: 2
