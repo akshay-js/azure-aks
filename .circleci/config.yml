@@ -26,7 +26,7 @@ jobs:
             name: Publish Docker Image to Docker Hub
             command: |
               sudo docker logout
-              sudo docker login -u "$DOCKERHUB_USERNAME" -p "$DOCKERHUB_PASSWORD" --password-stdin docker.io --help
+              sudo docker login -u "$DOCKERHUB_USERNAME" --email=akshaya.sharma770@gmail.com -p "$DOCKERHUB_PASSWORD" --password-stdin docker.io --help
               sudo docker build -t mylocalimage -f Dockerfile .
               sudo docker tag mylocalimage:latest akshayasharma770/testing:myfirstimagepush
               docker images
