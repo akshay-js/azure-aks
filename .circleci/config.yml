@@ -30,7 +30,7 @@ jobs:
               sudo docker build -t mylocalimage -f Dockerfile .
               sudo docker tag mylocalimage akshayasharma770/testing:myfirstimagepush
               docker images
-              sudo docker push akshayasharma770/testing:myfirstimagepush
+              sudo docker push akshayasharma770/mylocalimage:myfirstimagepush
 workflows:
   version: 2
   build-master:
