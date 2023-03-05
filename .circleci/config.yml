@@ -26,12 +26,12 @@ jobs:
         - run:
             name: Build
             command: |
-              docker build -t mylocalimage . --help
+              docker build -t mylocalimage .
         - run: 
             name: Publish Docker Image to Docker Hub
             command: |
-              docker logout --help
-              sudo docker tag mylocalimage akshayasharma770/node-test-aks:mylocalimage
+              docker logout
+              sudo docker tag mylocalimage akshayasharma770/node-test-aks:mylocalimage --help
               echo "$DOCKERHUB_PASSWORD" | sudo docker login --help -u "$DOCKERHUB_USERNAME" --password-stdin akshayasharma770/node-test-aks
               sudo docker push akshayasharma770/node-test-aks:mylocalimage --help
 
