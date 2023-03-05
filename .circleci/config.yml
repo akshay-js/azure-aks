@@ -32,7 +32,7 @@ jobs:
             command: |
               docker logout
               echo "$DOCKERHUB_PASSWORD" | docker login --help -u "$DOCKERHUB_USERNAME" --password-stdin
-              docker tag firsttry $IMAGE_NAME:firsttry
+              docker tag node-test-aks $IMAGE_NAME
               docker push $IMAGE_NAME
 
 workflows:
