@@ -25,7 +25,7 @@ jobs:
         - run: 
             name: Publish Docker Image to Docker Hub
             command: |
-              docker login -u "$DOCKER_USERNAME" -p "$DOCKERHUB_PASSWORD" --password-stdin
+              echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
               docker build -t mylocalimage -f Dockerfile .
               docker tag mylocalimage akshayasharma770/testing:myfirstimagepush
               docker images
