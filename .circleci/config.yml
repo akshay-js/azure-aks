@@ -3,11 +3,6 @@ executors:
   my-custom-executor:
     docker:
       - image: cimg/base:stable
-        auth:
-          # ensure you have first added these secrets
-          # visit app.circleci.com/settings/project/github/akshay-js/azure-aks/environment-variables
-          username: $DOCKERHUB_USERNAME
-          password: $DOCKERHUB_PASSWORD
 jobs:
   docker-push-test:
 
