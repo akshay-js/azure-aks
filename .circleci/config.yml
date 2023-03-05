@@ -32,8 +32,8 @@ jobs:
             command: |
               docker logout
               echo "$DOCKERHUB_PASSWORD" | docker login --help -u "$DOCKERHUB_USERNAME" --password-stdin
-              docker tag $IMAGE_NAME $IMAGE_NAME:firsttry
-              docker push $IMAGE_NAME:latest
+              docker tag firsttry $IMAGE_NAME:firsttry
+              docker push $IMAGE_NAME
 
 workflows:
   version: 2
