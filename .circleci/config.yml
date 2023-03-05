@@ -5,8 +5,7 @@ executors:
   docker-publisher: 
     environment:
       IMAGE_NAME: akshayasharma770/node-test-aks
-    docker: # Each job requires specifying an executor
-    # (either docker, macos, or machine), see
+    docker:
       - image: circleci/node:latest
 
 jobs:
@@ -31,9 +30,9 @@ jobs:
             name: Publish Docker Image to Docker Hub
             command: |
               docker logout
-              sudo docker tag mylocalimage akshayasharma770/node-test-aks:mylocalimage --help
+              sudo docker tag mylocalimage akshayasharma770/node-test-aks:latest --help
               echo "$DOCKERHUB_PASSWORD" | sudo docker login --help -u "$DOCKERHUB_USERNAME" --password-stdin akshayasharma770/node-test-aks
-              sudo docker push akshayasharma770/node-test-aks:mylocalimage --help
+              sudo docker push akshayasharma770/node-test-aks:latest --help
 
 workflows:
   version: 2
