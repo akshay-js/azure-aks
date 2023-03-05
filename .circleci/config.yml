@@ -32,8 +32,8 @@ jobs:
             command: |
               docker logout
               echo "$DOCKERHUB_PASSWORD" | docker login --help -u "$DOCKERHUB_USERNAME" --password-stdin
-              docker tag node-test-aks akshayasharma770/node-test-aks
-              docker push akshayasharma770/node-test-aks
+              docker tag node-test-aks:latest akshayasharma770/node-test-aks:latest
+              docker push akshayasharma770/node-test-aks:latest
 
 workflows:
   version: 2
