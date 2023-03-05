@@ -8,7 +8,6 @@ executors:
  docker: # Each job requires specifying an executor
  # (either docker, macos, or machine), see
  — image: circleci/node:latest
- - image: cimg/node:15.0.1
  auth:
  username: $DOCKERHUB_USERNAME
  password: $DOCKERHUB_PASSWORD
@@ -19,9 +18,6 @@ jobs:
  steps: 
  — checkout
  — setup_remote_docker
- — run: 
- name: Install dependencies
- command: npm i
  — run: 
  name: Publish Docker Image to Docker Hub
  command: |
