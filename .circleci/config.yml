@@ -25,12 +25,11 @@ jobs:
         - run: 
             name: Publish Docker Image to Docker Hub
             command: |
-              sudo docker logout
-              sudo docker login -u "$DOCKER_USERNAME" -p "$DOCKERHUB_PASSWORD" docker.io --password-stdin --help
-              sudo docker build -t mylocalimage -f Dockerfile .
-              sudo docker tag mylocalimage akshayasharma770/testing:myfirstimagepush
+              docker login -u "$DOCKER_USERNAME" -p "$DOCKERHUB_PASSWORD" --password-stdin
+              docker build -t mylocalimage -f Dockerfile .
+              docker tag mylocalimage akshayasharma770/testing:myfirstimagepush
               docker images
-              sudo docker push akshayasharma770/testing:myfirstimagepush
+              docker push akshayasharma770/testing:myfirstimagepush
 workflows:
   version: 2
   build-master:
