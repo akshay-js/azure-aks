@@ -26,9 +26,9 @@ jobs:
             name: Publish Docker Image to Docker Hub
             command: |
               docker logout
-              docker build -t akshayasharma770/node-test-aks .
+              docker build -t node-test-aks .
               echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin akshayasharma770/node-test-aks
-              docker push akshayasharma770/node-test-aks:latest
+              docker push node-test-aks:latest
 
 workflows:
   version: 2
