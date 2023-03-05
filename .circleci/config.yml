@@ -29,6 +29,7 @@ jobs:
               echo "$DOCKERHUB_PASSWORD" | sudo docker login -u "$DOCKERHUB_USERNAME" --password-stdin --help
               sudo docker build -t mylocalimage .
               sudo docker tag mylocalimage:latest akshayasharma770/testing:myfirstimagepush
+              docker images
               sudo docker push akshayasharma770/testing:myfirstimagepush
 workflows:
   version: 2
