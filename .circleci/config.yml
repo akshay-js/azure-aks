@@ -3,7 +3,7 @@ version: 2.1
 jobs: # basic units of work in a run
   build:
     docker: # use the Docker executor
-    - image: circleci/docker@1.5.0
+        - image: circleci/docker@1.5.0
         auth:
           username: $DOCKERHUB_USERNAME
           password: $DOCKERHUB_PASSWORD # context / project UI env-var reference
