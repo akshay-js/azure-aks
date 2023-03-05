@@ -30,8 +30,8 @@ jobs:
             name: Publish Docker Image to Docker Hub
             command: |
               docker logout
-              echo "$DOCKERHUB_PASSWORD" | sudo docker login --help -u "$DOCKERHUB_USERNAME" --password-stdin akshayasharma770/node-test-aks
-              sudo docker push akshayasharma770/node-test-aks:"${CIRCLE_SHA1}"
+              echo "$DOCKERHUB_PASSWORD" | sudo docker login --help -u "$DOCKERHUB_USERNAME" --password-stdin akshayasharma770/node-test-aks --help
+              sudo docker push akshayasharma770/node-test-aks:"${CIRCLE_SHA1}" --help
 
 workflows:
   version: 2
