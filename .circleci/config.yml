@@ -26,14 +26,14 @@ jobs:
         - run:
             name: Build
             command: |
-              docker build -t $IMAGE_NAME .
+              docker build -t node-test-aks .
         - run: 
             name: Publish Docker Image to Docker Hub
             command: |
               docker logout
               echo "$DOCKERHUB_PASSWORD" | docker login --help -u "$DOCKERHUB_USERNAME" --password-stdin
-              docker tag node-test-aks $IMAGE_NAME
-              docker push $IMAGE_NAME
+              docker tag node-test-aks akshayasharma770/node-test-aks
+              docker push akshayasharma770/node-test-aks
 
 workflows:
   version: 2
