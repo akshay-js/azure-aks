@@ -32,8 +32,8 @@ jobs:
             command: |
               docker logout
               echo "$DOCKERHUB_PASSWORD" | docker login --help -u "$DOCKERHUB_USERNAME" --password-stdin
-              docker tag mylocalimage akshayasharma770/node-test-aks:mylocalimage
-              docker push akshayasharma770/node-test-aks:mylocalimage
+              docker tag tagname akshayasharma770/node-test-aks:mylocalimage
+              docker push akshayasharma770/node-test-aks:tagname
 
 workflows:
   version: 2
