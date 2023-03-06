@@ -33,4 +33,6 @@ workflows:
   build-master:
     jobs:
        - build
-       - publish
+       - publish:
+           context: cred
+
